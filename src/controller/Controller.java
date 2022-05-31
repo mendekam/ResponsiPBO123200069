@@ -35,7 +35,7 @@ public class Controller {
                 double portofolio = Double.parseDouble(view.getPortofolio());
                 double microteaching = Double.parseDouble(view.getMicroteaching());
                 double wawancara = Double.parseDouble(view.getWawancara());
-                double nilai = (portofolio+microteaching+wawancara/3);
+                double nilai = (portofolio+microteaching+wawancara)/3;
                 model.insertData(nama, portofolio, microteaching, wawancara, nilai);
 
                 String[][] dataAslab = model.readData();
@@ -50,7 +50,7 @@ public class Controller {
                 double portofolio = Double.parseDouble(view.getPortofolio());
                 double microteaching = Double.parseDouble(view.getMicroteaching());
                 double wawancara = Double.parseDouble(view.getWawancara());
-                double nilai = (portofolio+microteaching+wawancara/3);
+                double nilai = (portofolio+microteaching+wawancara)/3;
                 model.updateData(nama, portofolio, microteaching, wawancara, nilai);
 
                 String[][] dataAslab = model.readData();

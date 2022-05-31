@@ -59,18 +59,22 @@ public class Model {
                 jmlData++;
             }
 
-//            if((Portofolio>=0 && Portofolio <=100) &&(Microteaching>=0 && Microteaching <=100) )
+            if((Portofolio>=0 && Portofolio <=100) &&(Microteaching>=0 && Microteaching <=100) &&(Wawancara>=0 && Wawancara <=100)){
+                if (jmlData==0) {
+                    query = "INSERT INTO aslab(nama,portofolio,microteaching,wawancara,nilai) VALUES('"+Nama+"','"+Portofolio+"','"+Microteaching+"','"+Wawancara+"','"+Nilai+"')";
 
-            if (jmlData==0) {
-                query = "INSERT INTO aslab(nama,portofolio,microteaching,wawancara,nilai) VALUES('"+Nama+"','"+Portofolio+"','"+Microteaching+"','"+Wawancara+"','"+Nilai+"')";
+                    statement = (Statement) koneksi.createStatement();
+                    statement.executeUpdate(query);
+                    JOptionPane.showMessageDialog(null, "Data Aslab ditambahkan");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Data Aslab sudah ada");
+                }
+            }else {
+                JOptionPane.showMessageDialog(null, "Data nilai harus 0-100");
+            }
 
-                statement = (Statement) koneksi.createStatement();
-                statement.executeUpdate(query);
-                JOptionPane.showMessageDialog(null, "Data Aslab ditambahkan");
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "Data Aslab sudah ada");
-            }
+
         } catch (Exception sql) {
             System.out.println(sql.getMessage());
             JOptionPane.showMessageDialog(null, sql.getMessage());
@@ -80,22 +84,27 @@ public class Model {
     public void updateData(String Nama, double Portofolio, double Microteaching, double Wawancara, double Nilai){
         int jmlData=0;
         try {
-            String query = "SELECT * FROM aslab WHERE judul='" + Nama+"'";
+            String query = "SELECT * FROM aslab WHERE nama='" + Nama+"'";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()){
                 jmlData++;
             }
 
-            if (jmlData==1) {
-                query = "UPDATE aslab SET portofolio='" + Portofolio + "', microteaching='" + Microteaching + "',wawancara='" + Wawancara + "' ,nilai='"+ Nilai+"' WHERE nama='" + Nama+"'";
-                statement = (Statement) koneksi.createStatement();
-                statement.executeUpdate(query);
-                JOptionPane.showMessageDialog(null, "Data Aslab Berhasil diupdate");
+            if((Portofolio>=0 && Portofolio <=100) &&(Microteaching>=0 && Microteaching <=100) &&(Wawancara>=0 && Wawancara <=100)) {
+                if (jmlData==1) {
+                    query = "UPDATE aslab SET portofolio='" + Portofolio + "', microteaching='" + Microteaching + "',wawancara='" + Wawancara + "' ,nilai='"+ Nilai+"' WHERE nama='" + Nama+"'";
+                    statement = (Statement) koneksi.createStatement();
+                    statement.executeUpdate(query);
+                    JOptionPane.showMessageDialog(null, "Data Aslab Berhasil diupdate");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Data Aslab Tidak Ada");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Data nilai harus 0-100");
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Data Aslab Tidak Ada");
-            }
+
 
         } catch (Exception sql) {
             System.out.println(sql.getMessage());

@@ -45,17 +45,17 @@ public class View extends JFrame {
         fNama.setBounds(510, 40, 120, 20);
 
         add(lNilaiPorto);
-        lNilaiPorto.setBounds(510, 60, 90, 20);
+        lNilaiPorto.setBounds(510, 60, 120, 20);
         add(fNilaiPorto);
         fNilaiPorto.setBounds(510, 80, 120, 20);
 
         add(lNilaiMicro);
-        lNilaiMicro.setBounds(510, 100, 90, 20);
+        lNilaiMicro.setBounds(510, 100, 120, 20);
         add(fNilaiMicro);
         fNilaiMicro.setBounds(510, 120, 120, 20);
 
         add(lNilaiWawancara);
-        lNilaiWawancara.setBounds(510, 140, 90, 20);
+        lNilaiWawancara.setBounds(510, 140, 120, 20);
         add(fNilaiWawancara);
         fNilaiWawancara.setBounds(510, 160, 120, 20);
 
